@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/renderer.js"></script>
+  </head>
+  <body>
+    <div class="lines-contatiner">
+      <div id="line-5" class="line"></div>
+      <div id="line-4" class="line"></div>
+      <div id="line-3" class="line"></div>
+      <div id="line-2" class="line"></div>
+      <div id="line-1" class="line"></div>
+    </div>
+  </body>
+</html>

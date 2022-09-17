@@ -1,0 +1,9 @@
+.line {
+    height: 1px;
+    background: black;
+    margin-bottom: 20px;
+}
+
+.lines-contatiner {
+    padding: 30px;
+}

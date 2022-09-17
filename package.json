@@ -4,7 +4,12 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc -w",
+    "copy-files": "copyfiles -u 1 pages/**/*.html pages/**/*.css dist/pages/",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "npm run build && npm run copy-files && electron ./dist/src/frontend/main.js",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,16 @@
   },
   "homepage": "https://github.com/Ksanork/PianoOnFire#readme",
   "dependencies": {
-    "easymidi": "^2.1.0"
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "copyfiles": "^2.4.1",
+    "easymidi": "^2.1.0",
+    "electron": "^19.0.10",
+    "eslint": "^7.32.0",
+    "typescript": "^4.8.3"
+  },
+  "devDependencies": {
+    "electron-builder": "^23.3.3",
+    "electron-rebuild": "^3.2.9"
   }
 }
