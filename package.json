@@ -1,15 +1,22 @@
 {
+  "name": "pianoonfire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --config webpack.config.js",
-    "build": "webpack --mode production"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "html-webpack-plugin": "^5.5.0",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ksanork/PianoOnFire.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ksanork/PianoOnFire/issues"
+  },
+  "homepage": "https://github.com/Ksanork/PianoOnFire#readme",
   "dependencies": {
-    "pitchfinder": "^2.3.2",
-    "webpack-dev-server": "^4.9.0"
+    "easymidi": "^2.1.0"
   }
 }
