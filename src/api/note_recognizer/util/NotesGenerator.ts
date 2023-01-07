@@ -2,7 +2,7 @@ import { Note } from "../model/Note";
 
 export default class NotesGenerator {
 
-    static generateNotes(rangeSize: number = 5, startRange: number = 3, lowestNote: number = 36, symbols: string[] = this.getSymbolsWithMajor()): Note[] {
+    static generateAllNotes(rangeSize: number = 5, startRange: number = 3, lowestNote: number = 36, symbols: string[] = this.getSymbolsWithMajor()): Note[] {
         let notes: Note[] = []
         
         for (let i = startRange, noteValue = lowestNote; i < rangeSize + startRange; i++, noteValue += 12) {

@@ -1,12 +1,13 @@
 import { Note } from "./model/Note";
 import NotesGenerator from "./util/NotesGenerator";
 var easymidi = require('easymidi');
+
 export default class NoteRecognizer {
 
     private notes: Note[]
 
     constructor() {
-        this.notes = NotesGenerator.generateNotes()
+        this.notes = NotesGenerator.generateAllNotes()
     }
 
     public recognizeNoteFromMidi(midiValue: number): Note | undefined {

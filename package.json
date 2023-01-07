@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "copy-files": "copyfiles -u 1 pages/**/*.html pages/**/*.css dist/pages/",
+    "copy-files": "copyfiles -u 1 resources/**/*.html resources/**/*.css dist/resources/",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "start": "npm run build && npm run copy-files && electron ./dist/src/frontend/main.js",
     "postinstall": "electron-builder install-app-deps"

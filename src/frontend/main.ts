@@ -16,14 +16,14 @@ function createWindow() {
   console.log("create window")
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "../../pages/index.html"));
+  mainWindow.loadFile(path.join(__dirname, "../../resources/pages/index.html"));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 
   console.log("preload")
   const noteRecognizer: NoteRecognizer = new NoteRecognizer()
-  noteRecognizer.startRecognizing()
+  // noteRecognizer.startRecognizing()
 }
 
 // This method will be called when Electron has finished
