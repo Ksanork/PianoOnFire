@@ -39,9 +39,8 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
-    "easymidi": "^3.0.1",
+    "easymidi": "^2.1.0",
     "electron-builder": "^23.3.3",
-    "electron-rebuild": "^3.2.9",
     "electron-squirrel-startup": "^1.0.0"
   }
 }

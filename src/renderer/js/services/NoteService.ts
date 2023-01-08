@@ -27,6 +27,7 @@ export default class NoteService {
     }
 
     private startListeningForNote() {
+        console.log("startListening")
         window.pianoApi.onNotePressed((event: any, value: any) => {
             console.log("onNotePressed")
             console.log(value)

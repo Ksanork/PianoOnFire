@@ -1,7 +1,8 @@
 import { BrowserWindow } from "electron";
 import { Note } from "./model/Note";
 import NotesGenerator from "./util/NotesGenerator";
-var easymidi = require('easymidi');
+// var easymidi = require('easymidi');
+import easymidi from "easymidi"
 
 export default class NoteRecognizer {
 
