@@ -1,4 +1,5 @@
 export default interface Note {
     value: number,
-    symbol: string
+    symbol: string,
+    position: number
 }

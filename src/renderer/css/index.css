@@ -1,0 +1,71 @@
+:root {
+  --note-size: 65px;
+  --line-size: 1px;
+  --line-margin-bottom: 15px;
+  --top-note-px: -49x
+}
+
+
+.line {
+  height: var(--line-size);
+  background: black;
+  margin-bottom: var(--line-margin-bottom);
+}
+
+.lines-contatiner {
+  padding: 30px;
+  position: relative;
+}
+
+.note {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.note-strike {
+  height: 1px;
+  background: black;
+  width: 28px;
+  position: relative;
+  left: -20px;
+}
+
+.note-circle {
+  height: var(--note-size);
+  width: var(--note-size);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  background-color: black;
+}
+
+.note-line {
+  border-left: 3px solid black;
+  height: 50px;
+  position: relative;
+  left: -2px;
+  top: -23px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.green-note > * {
+  color: green;
+  border-color: green;
+  background-color: green;
+}
+
+.red-note > * {
+  color: red;
+  border-color: red;
+  background-color: red;
+}
+
+.text-note {
+  font-size: var(--note-size);
+  position: absolute;
+}

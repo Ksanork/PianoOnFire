@@ -17,20 +17,14 @@ export default class NoteRenderer {
 
     private createDomElementForNote(note: Note, top: number)  {
         const element = document.createElement("div")
-        element.setAttribute("class", "note")
+        element.setAttribute("class", "text-note")
         element.setAttribute("style", `top: ${top}px`)
-
-        element.innerHTML = `
-            <div class="note-circle"></div>
-            <div class="note-line"></div>
-        `
-
+        element.innerHTML = "𝅘𝅥𝅮"
         return element
     }
 
     private generateTopPositionForNote(note: Note): number {
-        // const idx = note.value - this.config.topNoteValue
-        const idx = this.config.topNoteValue - note.value
-        return idx * this.config.lineMarginBottom/2 - this.config.lineSize + this.config.noteSize/2
+        const positionDiff = this.config.topNotePosition - note.position
+        return this.config.topNotePx + this.config.noteDiffPx * positionDiff
     }
 }
