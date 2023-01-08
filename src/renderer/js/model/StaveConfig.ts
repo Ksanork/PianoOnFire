@@ -1,5 +1,5 @@
 export default interface StaveConfig {
-    // top for A6 (position = 42)
+    // top for A5 (position = 35)
     topNotePosition: number,
     topNotePx: number,
     noteDiffPx: number,

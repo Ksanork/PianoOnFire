@@ -52,7 +52,7 @@ declare global {
 }
 
 const noteService: NoteService = new NoteService()
-noteService.startRecognize()
+noteService.startRecognizing()
 
    
 

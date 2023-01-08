@@ -3,7 +3,7 @@ import StylesVarUtil from "../util/StylesVarUtil";
 
 export const appConfig: PianoConfig = {
     staveConfig: {
-        topNotePosition: 42,
+        topNotePosition: 35,
         // topNotePx: StylesVarUtil.getIntFromVar("--top-note-px"),
         topNotePx: -49,
         noteDiffPx: 8,
