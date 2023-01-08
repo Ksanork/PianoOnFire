@@ -1,3 +1,4 @@
+import { BrowserWindow } from "electron";
 import { Note } from "./model/Note";
 import NotesGenerator from "./util/NotesGenerator";
 var easymidi = require('easymidi');
@@ -5,9 +6,11 @@ var easymidi = require('easymidi');
 export default class NoteRecognizer {
 
     private notes: Note[]
+    private mainWindow: BrowserWindow
 
-    constructor() {
+    constructor(mainWindow: BrowserWindow) {
         this.notes = NotesGenerator.generateAllNotes()
+        this.mainWindow = mainWindow
     }
 
     public recognizeNoteFromMidi(midiValue: number): Note | undefined {
@@ -22,6 +25,9 @@ export default class NoteRecognizer {
             console.log(msg);
             const note: Note = self.recognizeNoteFromMidi(msg.note)!
             console.log(note)
+
+            // self.mainWindow.webContents.send("pianoEvent:onNotePressed", note)
+            self.mainWindow.webContents.send("pianoEvent:onNotePressed", note)
         });
     }
 }
