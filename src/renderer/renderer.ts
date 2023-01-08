@@ -27,15 +27,7 @@
  */
 
 import './css/index.css';
-
-
-import Note from "./js/model/Note"
-import Stave from "./js/model/Stave"
-import StaveConfig from "./js/model/StaveConfig"
-import NoteRenderer from "./js/renderers/NoteRenderer"
-import StylesVarUtil from "./js/util/StylesVarUtil"
-
-
+import NoteService from './js/services/NoteService';
 
 // top values for note
 // C - 125px   47px  
@@ -59,33 +51,8 @@ declare global {
     }
 }
 
-let notes: Note[] = []
-
-async function start() {
-    notes = await window.pianoApi.getNotes()
-
-    console.log("renderer")
-
-    const staveConfig: StaveConfig = {
-        topNotePosition: 42,
-        topNotePx: StylesVarUtil.getIntFromVar("--top-note-px"),
-        noteDiffPx: 8,
-    }
-    
-    const stave: Stave = {
-        element: undefined,
-        container: document.getElementById("stave")
-    }
-    
-    const noteRenderer: NoteRenderer = new NoteRenderer(staveConfig)
-    
-    const testNote = notes.find(note => note.symbol == "E5")
-    
-    noteRenderer.showNoteOnStave(testNote, stave)
-}
-    
-
-start()
+const noteService: NoteService = new NoteService()
+noteService.startRecognize()
 
    
 

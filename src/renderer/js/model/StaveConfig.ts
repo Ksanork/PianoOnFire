@@ -3,6 +3,7 @@ export default interface StaveConfig {
     topNotePosition: number,
     topNotePx: number,
     noteDiffPx: number,
+    staveContainerName: string
 
     // lineSize: number,
     // lineMarginBottom: number,

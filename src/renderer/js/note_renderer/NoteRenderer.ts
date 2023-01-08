@@ -10,9 +10,10 @@ export default class NoteRenderer {
         this.config = config
     }
 
-    public showNoteOnStave(note: Note, stave: Stave) {
+    public showNoteOnStave(note: Note) {
         const noteElement = this.createDomElementForNote(note, this.generateTopPositionForNote(note))
-        stave.container.append(noteElement)
+        const staveContainer = document.getElementById(this.config.staveContainerName)
+        staveContainer.append(noteElement)
     }
 
     private createDomElementForNote(note: Note, top: number)  {
