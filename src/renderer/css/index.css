@@ -69,3 +69,11 @@
   font-size: var(--note-size);
   position: absolute;
 }
+
+.text-sharp {
+  /* display: none; */
+  font-size: calc(var(--note-size) / 2);
+  position: relative;
+  top: 3px;
+  /* left: 18px; */
+}

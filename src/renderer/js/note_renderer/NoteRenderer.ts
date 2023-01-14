@@ -27,12 +27,24 @@ export default class NoteRenderer {
     }
 
     private createDomElementForNote(note: RenderedNote, top: number)  {
-        const element = document.createElement("div")
-        element.setAttribute("id", note.uuid)
-        element.setAttribute("class", "text-note")
-        element.setAttribute("style", `top: ${top}px`)
-        element.innerHTML = "𝅘𝅥𝅮"
-        return element
+        const mainElement = document.createElement("div")
+        mainElement.setAttribute("id", note.uuid)
+        mainElement.setAttribute("class", "text-note")
+        mainElement.setAttribute("style", `top: ${top}px`)
+
+        if (note.isSharp) {
+            const sharpElement = document.createElement("span")
+            sharpElement.setAttribute("class", "text-sharp")
+            sharpElement.innerHTML = "♯"
+            mainElement.appendChild(sharpElement)
+    
+        }
+      
+        const noteElement = document.createElement("span")
+        noteElement.innerHTML = "𝅘𝅥𝅮"
+        mainElement.appendChild(noteElement)
+
+        return mainElement
     }
 
     private generateTopPositionForNote(note: Note): number {
@@ -43,7 +55,8 @@ export default class NoteRenderer {
     private createRenderedNote(note: Note): RenderedNote {
         return {
             note: note,
-            uuid: RandomUtil.generateUuid()
+            uuid: RandomUtil.generateUuid(),
+            isSharp: note.symbol.includes("#")
         }
     }
     
