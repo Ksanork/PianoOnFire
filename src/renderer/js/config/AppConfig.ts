@@ -7,7 +7,8 @@ export const appConfig: PianoConfig = {
         // topNotePx: StylesVarUtil.getIntFromVar("--top-note-px"),
         topNotePx: -49,
         noteDiffPx: 8,
-        staveContainerName: "stave"
+        staveContainerName: "stave",
+        noteDefaultChar: "♪"
     },
     consts: {
         IPC_NOTE_PRESSED_EVENT: "pianoEvent:onNotePressed",

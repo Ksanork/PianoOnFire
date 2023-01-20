@@ -1,4 +1,5 @@
 export default interface GetNotesQuery {
     rangeSize: number,
-    startRange: number
+    startRange: number,
+    scale?: string
 }

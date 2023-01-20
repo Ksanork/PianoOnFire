@@ -37,11 +37,10 @@ export default class NoteRenderer {
             sharpElement.setAttribute("class", "text-sharp")
             sharpElement.innerHTML = "♯"
             mainElement.appendChild(sharpElement)
-    
         }
       
         const noteElement = document.createElement("span")
-        noteElement.innerHTML = "𝅘𝅥𝅮"
+        noteElement.innerHTML = this.config.noteDefaultChar
         mainElement.appendChild(noteElement)
 
         return mainElement

@@ -1,19 +1,19 @@
 import { Note } from "../model/Note";
-import Scale from "../model/Scale";
-import SingleTone from "../model/SingleTone";
+import StaveConsts from "../model/StaveConsts";
 import SingleToneEntity from "../model/SingleToneEntity";
 
 export default class NotesGenerator {
 
-    static generateAllNotes(rangeSize: number = 5, startRange: number = 3, scale: string[] = null): Note[] {
-        let notes: Note[] = []
+    static generateAllNotes(rangeSize = 5, startRange = 3, scale: string[] = null): Note[] {
+        const notes: Note[] = []
+        const allTones: SingleToneEntity[] = StaveConsts.ALL_TONES_ORDERED
         
-        const lowestNote = (startRange + 1) * SingleTone.ALL_TONES_ORDERED.length
-        const singleTones = this.prepareSymbolsWithPostitions(SingleTone.ALL_TONES_ORDERED, this.getDistributionForTrebleClef(), scale)
+        const lowestNote = (startRange + 1) * allTones.length
+        const singleTones = this.prepareSymbolsWithPostitions(allTones, StaveConsts.CLEFS_DISTRIBUTION.TREBLE, scale)
 
-        for (let i = startRange, noteValue = lowestNote; i < rangeSize + startRange; i++, noteValue += SingleTone.ALL_TONES_ORDERED.length) {
+        for (let i = startRange, noteValue = lowestNote; i < rangeSize + startRange; i++, noteValue += allTones.length) {
             let value = noteValue
-            let position = i * 7    // 7 - number of positions on a stave within scale
+            const position = i * 7    // 7 - number of positions on a stave within scale
 
             for (const singleTone of singleTones)  {
                 for (const [idx, symbol] of singleTone.symbols.entries()) {
@@ -29,7 +29,7 @@ export default class NotesGenerator {
         return notes
     }
 
-    public static generateNotesByScale(scale: string[], rangeSize: number = 5, startRange: number = 3): Note[] {
+    public static generateNotesByScale(scale: string[], rangeSize = 5, startRange = 3): Note[] {
         return this.generateAllNotes(rangeSize, startRange, scale)
     }
 
@@ -56,10 +56,7 @@ export default class NotesGenerator {
         return symbols
     }
 
-    private static getDistributionForTrebleClef() {
-        // ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "H"]
-        return [-5, -5, -4, -4, -3, -2, -2, -1, -1, 0, 0, 1]
-    }
+
 
     private static createNote(value: number, symbol: string, position: number): Note {
         return {

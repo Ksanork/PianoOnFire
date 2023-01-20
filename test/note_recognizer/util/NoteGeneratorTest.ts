@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import Scale from "../../../src/main/note_recognizer/model/Scale";
+import StaveConsts from "../../../src/main/note_recognizer/model/StaveConsts";
 import NotesGenerator from "../../../src/main/note_recognizer/util/NotesGenerator";
 
 const NOTES_WITH_RANGE_2_AND_START_5 = [
@@ -71,7 +71,7 @@ describe('NoteGenerator test', () => {
     });
 
     it('Should return notes with correct positions and symbols with C_DUR scale', () => {
-        const notes = NotesGenerator.generateNotesByScale(Scale.C_DUR, 2, 5)
+        const notes = NotesGenerator.generateNotesByScale(StaveConsts.C_DUR, 2, 5)
         assert.deepEqual(notes, NOTES_C_DUR_WITH_RANGE_2_AND_START_5)
     });
 });

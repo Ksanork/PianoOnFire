@@ -62,18 +62,5 @@ export default class SingleTone {
         localPositions: [0, 1]
     }
 
-    public static ALL_TONES_ORDERED: SingleToneEntity[] = [
-        this.C_HIS,
-        this.CIS_DES,
-        this.D,
-        this.DIS_ES,
-        this.E_FES,
-        this.EIS_F,
-        this.FIS_GES,
-        this.G,
-        this.GIS_AS,
-        this.A,
-        this.AIS_HES,
-        this.H_CES
-    ]
+
 }
