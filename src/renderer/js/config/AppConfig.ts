@@ -1,17 +1,18 @@
-import PianoConfig from "../model/PianoConfig";
+import { electronSharedConfig } from "../../../shared/config/ElectronSharedConfig"
+import PianoConfig, { AppConfig } from "../model/PianoConfig";
 import StylesVarUtil from "../util/StylesVarUtil";
 
-export const appConfig: PianoConfig = {
+export const appConfig: AppConfig = {
     staveConfig: {
-        topNotePosition: 35,
-        // topNotePx: StylesVarUtil.getIntFromVar("--top-note-px"),
-        topNotePx: -49,
-        noteDiffPx: 8,
+        topNotePosition: 35,                                                        
+        topNotePx: -89 + 69,                                                             
+        noteDiffPx: 8,                                                              
+        crossLineRelativeOffsetPx: 104,                                             
+        lineHeightPx: 1,                                             
+        // staveLineDiffPx: StylesVarUtil.getIntFromVar("--line-margin-bottom"),
+        staveLineDiffPx: 15,
         staveContainerName: "stave",
         noteDefaultChar: "♪"
     },
-    consts: {
-        IPC_NOTE_PRESSED_EVENT: "pianoEvent:onNotePressed",
-        IPC_GET_NOTES_REQUEST: "pianoRequest:getNotes",
-    }
+    ...electronSharedConfig
 } 

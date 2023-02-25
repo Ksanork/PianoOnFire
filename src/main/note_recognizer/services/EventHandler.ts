@@ -1,7 +1,7 @@
 import { IpcMain } from "electron"
-import EventResponse from "../model/EventReponse"
+import EventResponse from "../../../shared/response/EventReponse"
 
-export default abstract class EventHandler {
+export default class EventHandler {
 
   public static registerEventHandler<Q, T>(ipcMain: IpcMain, eventName: string, callback: (query: Q) => T) {
     ipcMain.handle(eventName, async (event, message) => this.handleEventWith<Q, T>(event, message, callback, eventName))

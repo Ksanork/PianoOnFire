@@ -1,11 +1,10 @@
+import EventResponse from "../../../shared/response/EventReponse"
+import GetNotesQuery from "../../../shared/query/GetNotesQuery"
 import { appConfig } from "../config/AppConfig"
-import GetNotesQuery from "../model/GetNotesQuery"
 import Note from "../model/Note"
 import RenderedNote from "../model/RenderedNote"
-import StaveConfig from "../model/StaveConfig"
 import NoteRenderer from "../note_renderer/NoteRenderer"
 import RandomUtil from "../util/RandomUtil"
-import StylesVarUtil from "../util/StylesVarUtil"
 
 export default class NoteService {
 
@@ -13,7 +12,7 @@ export default class NoteService {
     private noteRenderer: NoteRenderer = new NoteRenderer(appConfig.staveConfig)
     private currentNote: RenderedNote
 
-    public async fetchNotes(startRange: number, rangeSize: number): Promise<Note[]> {
+    public async fetchNotes(startRange: number, rangeSize: number): Promise<EventResponse<Note[]>> {
         const query: GetNotesQuery = {
             rangeSize: rangeSize,
             startRange: startRange
@@ -22,9 +21,17 @@ export default class NoteService {
         return window.pianoApi.getNotes(query)
     }
 
+    private async initNotes() {
+        const notesResponse: EventResponse<Note[]> = await this.fetchNotes(4, 2)
+
+        this.notes = notesResponse.result
+        console.log(this.notes)
+
+    }
+
     public async startRecognizing() {
-        this.notes = await this.fetchNotes(4, 2)
-        this.startListeningForNote()
+        await this.initNotes()
+        // this.startListeningForNote()
         this.nextStep()
     }
 
@@ -36,7 +43,7 @@ export default class NoteService {
         const randomNote = this.randomNote()
         console.log("random note")
         console.log(randomNote)
-        this.currentNote = this.noteRenderer.renderNote(randomNote)
+        this.currentNote = this.noteRenderer.renderNote(randomNote, 100)
     }
 
     private checkNote(pressedNote: Note) {
@@ -58,6 +65,17 @@ export default class NoteService {
 
     private randomNote() {
         return this.notes[RandomUtil.randFrom(0, this.notes.length - 1)]
+    }
+
+    public async renderAllNotes() {
+        await this.initNotes()
+
+
+        let left = 20
+        this.notes.forEach((note: Note) => {
+            this.noteRenderer.renderNote(note, left)
+            left += 50
+        })
     }
 
 }

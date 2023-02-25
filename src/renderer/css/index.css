@@ -1,8 +1,12 @@
+@font-face {
+  font-family: NotoSerif;
+  src: url(font/NotoSerif-Regular.ttf);
+}
+
 :root {
-  --note-size: 65px;
+  --note-size: 106px;
   --line-size: 1px;
   --line-margin-bottom: 15px;
-  --top-note-px: -49x
 }
 
 
@@ -12,26 +16,35 @@
   margin-bottom: var(--line-margin-bottom);
 }
 
-.lines-contatiner {
-  padding: 30px;
-  position: relative;
+.cross-line {
+  height: var(--line-size);
+  background: black;
+  /* background: red; */
+  position: absolute;
+  width: 38px;
 }
 
+.lines-contatiner {
+  padding: 30px;
+  padding-top: 100px;
+  position: relative;
+}
+/* 
 .note {
   position: absolute;
   display: flex;
   align-items: center;
-}
+} */
 
-.note-strike {
+/* .note-strike {
   height: 1px;
   background: black;
   width: 28px;
   position: relative;
   left: -20px;
-}
+} */
 
-.note-circle {
+/* .note-circle {
   height: var(--note-size);
   width: var(--note-size);
   border-top-left-radius: 100%;
@@ -47,7 +60,7 @@
   position: relative;
   left: -2px;
   top: -23px;
-}
+} */
 
 .hidden {
   visibility: hidden;
@@ -66,14 +79,15 @@
 }
 
 .text-note {
+  font-family: NotoSerif;
   font-size: var(--note-size);
   position: absolute;
 }
 
 .text-sharp {
   /* display: none; */
-  font-size: calc(var(--note-size) / 2);
-  position: relative;
-  top: 3px;
-  /* left: 18px; */
+  font-size: calc(var(--note-size) / 2.5);
+  position: absolute;
+  top: 73px;
+  left: -15px;
 }
